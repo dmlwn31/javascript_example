@@ -8,8 +8,8 @@ const $start = document.querySelector('#start');
 const $score = document.querySelector('#score');
 const $target = document.querySelector('#target');
 
-// let abc= Math.floor(Math.random() * 500);
-// console.log(abc);
+//let abc = Math.floor(Math.random() * 500);
+//console.log(abc);
 
 function moveTarget(){
   let x = Math.floor(Math.random() * 500);
@@ -20,21 +20,21 @@ function moveTarget(){
 }
 
 function gameStart(){
-    if(playing == false){
-      playing = true;
-      endGame();
-      timer = setInterval(function(){
-        moveTarget();
-      }, 1000);  
-    }  
-  }
-  
+  if(playing == false){
+    playing = true;
+    endGame();
+    timer = setInterval(function(){
+      moveTarget();
+    }, 1000);
+  } 
+}
+
 function endGame(){
   setTimeout(function(){
     playing=false;
     clearInterval(timer);
     alert("Game Over!");
-  }, 5000);
+  }, 5000); 
 }
 
 $start.addEventListener('click', function(){
@@ -44,6 +44,6 @@ $start.addEventListener('click', function(){
 $target.addEventListener('click', function(){
   if(playing==true){
     count++;
-    $score.textContentContent = count;
-  }
+    $score.textContent = count;
+  } 
 });
