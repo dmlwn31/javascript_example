@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <script defer>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        //1. 요소 선택 : querySelector();
+        console.log("DOM fully loaded and parsed");
+        const header = document.querySelector("h1");
+        console.log(header);
+
+        header.textContent = "header"; //컨텐츠 변경
+        header.style.color = "#fff";
+        header.style.backgroundColor = "#111";
+        header.style.padding = "10px";
+        header.style.boxSizing = "border-box";
+
+        // 2.반속 요소 선택 : querySelectorALL();
+        // const para = document.querySelectorALL("p");
+        // console.log(para);
+        // for (let i = 0; i < para.length; i++) {
+        //   para[i].textContent = "header"; //컨텐츠 변경
+        //   para[i].style.color = "#fff";
+        //   para[i].style.backgroundColor = "#111";
+        //   para[i].style.padding = "10px";
+        //   para[i].style.boxSizing = "border-box";
+
+        para.forEach(function (paraEl) {
+          para.textContent = "header"; //컨텐츠 변경
+          para.style.color = "#fff";
+          para.style.backgroundColor = "#111";
+          para.style.padding = "10px";
+          para.style.boxSizing = "border-box";
+        });
+        let arr = [1, 2, 3, 4];
+        arr.forEach(function (item, index) {
+          console.log(item, index);
+        });
+        //3. 요소 속성값 지정 : setAttribute();
+        const imgs = document.querySelectorAll(".img");
+        imgs.forEach(function (img, index) {
+          console.log(img, index);
+          const src = `post-${index + 1}.jpg`;
+          console.log(src);
+        });
+        // 4. 요소 생성 : createElement(); 요소추가:appendChild();
+
+        const hTag = document.createElement("h3");
+        hTag.textContent = "헤더 3 생성";
+        hTag.style.color = "yellow";
+        hTag.style.backgroundColor = "red";
+
+        document.body.appendChild(hTag);
+
+        //요소 제거 : remove Child
+        setTimeout(function () {
+          const removeTag = document.querySelector("#remove");
+          // document.body.removeChild(removeTag);
+          removeTag.parentNode.removeChild(removeTag);
+        }, 3000);
+      });
+
+      // window.addEventListener("DOMContentLoaded", function (event) {});
+      //documetn.getElementByid('idname');
+      //document.getElementsByClassName('classname');
+      //document.getElementsByTagName('tagname');
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="img-box">
+      <img class="img" />
+      <img class="img" />
+      <img class="img" />
+    </div>
+    <h2 id="remove">제거할 태그</h2>
+  </body>
+</html>
